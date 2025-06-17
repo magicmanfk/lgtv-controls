@@ -1,4 +1,4 @@
-﻿. C:\Users\media\lg_tv_functions.ps1
+﻿. C:\Users\media\code\lgtv-controls\lg_tv_functions.ps1
 
 $powerState = getPowerState
 Write-Host $powerState

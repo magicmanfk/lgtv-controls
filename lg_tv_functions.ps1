@@ -8,11 +8,13 @@ $svcl = "C:\Users\media\svcl.exe"
 # https://github.com/JPersson77/LGTVCompanion
 $LGTVcli = 'C:\Program Files\LGTV Companion\LGTVcli.exe'
 
-$scriptsDir = "C:\Users\media\code\lgtv-controls"
-
+# Windows audio output device name
 $deviceName = "LG TV SSCR2"
 
 ### Volume functions ###
+
+# My Sonos soundbar goes inactive and when it does is unable to send volume info or update its volume until it needs to play something.
+# This wakes it up by softly playing something, even if it wakes up at a high volume.
 function activateVolume()
 {
     & $svcl "/SetVolume" "$deviceName" 10
@@ -49,9 +51,9 @@ function setDefaultVolume()
     Write-host "We need to adjust by $volumeAdjustment to set volume to $defaultVolume"
 
     if ($VolumeAdjustment -lt 0) {
-        1..-$VolumeAdjustment | % { sleep .1 ; volumeUp }
+        1..-$VolumeAdjustment | ForEach-Object { sleep .1 ; volumeUp }
     } elseif ($VolumeAdjustment -gt 0) {
-        1..$VolumeAdjustment | % { sleep .1 ; volumeDown }
+        1..$VolumeAdjustment | ForEach-Object { sleep .1 ; volumeDown }
     }
     $currentVolume = getVolume
     Write-host "After adjustment volume is now $currentvolume"
