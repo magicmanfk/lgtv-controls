@@ -7,12 +7,14 @@
 ;     ^!d::
 ; means, "press 'd' while holding ctrl and alt".
 
-;;; Variables section - Set these to your own paths ;;;
+;### Variables section - Set these to your own paths ###
 
 ; More info on run-hidden: https://github.com/stax76/run-hidden
 powershell := "C:\Users\media\run-hidden.exe powershell.exe"
 scriptsDir := "C:\Users\media\code\lgtv-controls\"
 lgtvCompanion := "C:\Program Files\LGTV Companion\LGTV Companion.exe"
+
+;### MAIN SECTION ###
 
 ;## Corner Clock Control ##
 ; Toggle dsclock on or off (clock in corner of screen)
@@ -20,9 +22,9 @@ lgtvCompanion := "C:\Program Files\LGTV Companion\LGTV Companion.exe"
 {
 Run (powershell ' -file ' scriptsDir 'dsclock-toggle.ps1')
 }               
-;##########################
 
 ;## HDMI Inputs ##
+
 ; Set HDMI to PC (HDMI 1)
 ^1::
 {
@@ -34,7 +36,6 @@ Run (powershell ' -file ' scriptsDir 'lg_set_HDMI1.ps1')
 {
 Run (powershell ' -file ' scriptsDir 'lg_set_HDMI3.ps1')
 }
-;##############################
 
 ;## Volume Control ##
 
@@ -61,9 +62,9 @@ Volume_Down::
 {
 Run (lgtvCompanion ' -button VOLUMEDOWN device1')
 }
-;##########################
 
 ;## Power Control ##
+
 ; Power Toggle
 ^Enter::
 {
@@ -76,10 +77,9 @@ Run (powershell ' -file ' scriptsDir '\lg_power_toggle.ps1')
 {
 Run (powershell ' -file ' scriptsDir '\lg_power_on.ps1')
 }
-;#########################
-
 
 ;## Brightness Percent Control ##
+
 ; Set brightness to 0%
 ^!`::
 {
@@ -145,7 +145,6 @@ Run (lgtvCompanion ' -settings_picture {\"backlight\":\"90\"} device1')
 {
 Run (lgtvCompanion ' -settings_picture {\"backlight\":\"100\"} device1')
 }
-;######################################
 
 ;## HDR Tone Mapping ###
 
