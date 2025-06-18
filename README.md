@@ -49,8 +49,8 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
    * ctrl+VOL keys: Show toast notification with current volume. Will first attempt to activate speakers if they are inactive by sending a quiet alert noise.
 
 * **Direct HDMI input control:** These can be easily configured to your liking, and can even be LG TV channels.
-  * ctrl+1: HDMI1 (PC)
-  * ctrl+3: HDMI3 (console)
+  * ctrl+1: HDMI1 (PC) - If not already set will show toast notification with current volume (optional)
+  * ctrl+3: HDMI3 (gaming console)
 
 * **DSClock Toggle:** Mapped to ctrl+alt+d. Only relevant if you use or want to use dsclock. VERY optional.
 
