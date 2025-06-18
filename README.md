@@ -45,8 +45,8 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
     * h : Turn on HGIG (gaming mode only, no noticeable difference from off) 
     
 * **Direct volume control:**
-   * VOLUP, VOLDOWN, and MUTE : These keyboard keys are remapped to control LG TV volume directly. If using LG speakers or audio is setup through ARC this allows you to keep Windows volume at 100% and change sound levels of speakers directly via keyboard without needing a remote control.
-   * ctrl+VOL keys: Show toast notification with current volume. Will first attempt to activate speakers if they are inactive by sending a quiet alert noise.
+   * VOLUP, VOLDOWN, and MUTE : These keyboard keys are remapped to control LG TV volume directly. If using LG speakers or audio is setup through ARC this allows you to keep Windows volume at 100% and change sound levels of speakers directly via keyboard without needing a remote control. Unmuting will show a toast notification with the current volume (optional).
+   * ctrl+VOL keys: Show toast notification with current volume. Will first attempt to activate speakers if they are inactive by sending a quiet alert noise (toast notification optional).
 
 * **Direct HDMI input control:** These can be easily configured to your liking, and can even be LG TV channels.
   * ctrl+1: HDMI1 (PC) - If not already set will show toast notification with current volume (optional)
