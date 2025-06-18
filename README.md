@@ -59,17 +59,18 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
 
 ### Dependencies
  
- These scripts utilize the following applications:
+ These scripts utilize the following applications/modules:
 
 * [AutoHotKey](http://autohotkey.com/): Used to configure keyboard shortcuts to send commands.
 * [LG TV Companion](https://github.com/JPersson77/LGTVCompanion): Used for sending commands to the LG TV. Note the install directory as you will need to ensure it matches our default variables.
 * [run-hidden](https://github.com/stax76/run-hidden): This allows AHK to silently call Powershell scripts. Note the location of the exe as you will need to ensure it matches our default variables.
 * [Sound Volume Command Line](https://www.nirsoft.net/utils/sound_volume_command_line.html) (svcl): Used specifically in the activateVolume Powershell function to manage the Windows volume for situations like mine where your audio device deactivates and you need to wake it up before it is able to send or receive volume levels by playing a noise. If you don't have that issue, you can probably ignore this and delete any references to the activateVolume function in your scripts. Note the location of the exe as you will need to ensure it matches our default variables. Keeping it won't hurt anything.
 * [dsclock](https://ds-clock.en.softonic.com/?ex=RAMP-3252.2): I wish I could find a first party link, but I think the company is no longer around. This is a nice little clock widget that can be set to always show, even over content being played. This was something I wanted for my configuration, but if you don't want this it is by no means necessary.
+* [BurntToast Powershell Module](https://github.com/Windos/BurntToast): This is used to show a notification with the current volume when you unmute. If you don't like this you can remove everything from lg_mute_volume.ps1 but the line 1 import and the one-line mute button press.
 
 ### Installation
 
-1. Ensure you have installed all the relevant dependencies. AHK and LG TV Companion, and I think run-hidden are essential for a good user experience. Sound Volume Command Line may not be required for you - see "Dependencies" section. dsclock is totally optional.
+1. Ensure you have installed all the relevant dependencies. AHK and LG TV Companion, and I think run-hidden are essential for a good user experience. Sound Volume Command Line may not be required for you - see "Dependencies" section. dsclock is totally optional, as is the notification on unmute.
 1. Clone down this git repo to the folder you'd like to run your LG TV control scripts from. Probably somewhere in your home folder?
 1. Open up *lg_tv_functions.ps1*. Ensure all the variables are correctly set. If you have a different device than an LG C2 it is the name of the "Output Device" in Windows for it. The current default volume of 18 is quiet but noticeable when Windows is at 100% volume. 
 1. Open up *media-server-hotkeys.ahk* and update the variables in the variables section. You'll need to update the "powershell" variable to point to your "run-hidden" exe file, the "scriptsDir" to where you cloned down this git repo, and "lgtvCompanion" to where your LGTV Companion binary files are.

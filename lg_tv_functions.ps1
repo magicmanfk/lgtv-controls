@@ -31,6 +31,13 @@ function getVolume()
     Return [int]$currentVolume
 }
 
+function displayVolume()
+{
+    $currentVolume = getVolume
+    New-BurntToastNotification -Silent -AppLogo None -Text "Current volume: $currentVolume"
+
+}
+
 function volumeUp()
 {
     & $LGTVcli -request com.webos.service.audio/master/volumeUp | Out-Null

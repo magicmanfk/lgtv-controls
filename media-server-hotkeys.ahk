@@ -48,7 +48,7 @@ Run (powershell ' -file ' scriptsDir 'lg_active_and_set_volume.ps1')
 ; Mute Toggle
 Volume_Mute::
 {
-Run (lgtvCompanion ' -button MUTE device1')
+Run (powershell ' -file ' scriptsDir 'lg_mute_volume.ps1')
 }
 
 ; Raise Volume

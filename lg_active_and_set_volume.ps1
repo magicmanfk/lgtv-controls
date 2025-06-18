@@ -1,10 +1,9 @@
-﻿. C:\Users\media\lg_tv_functions.ps1
+﻿. C:\Users\media\code\lgtv-controls\lg_tv_functions.ps1
 
 $currentInput = GetInput
 If($currentInput -match "hdmi1") {
     activateVolume
-    $currentVolume = getVolume
-    Sleep 2
+    Start-Sleep 2
     setDefaultVolume
 }
 exit
