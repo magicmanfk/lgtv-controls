@@ -1,8 +1,11 @@
 ﻿# Volume you want to default to on power on
 $defaultVolume = 18
 
-# https://www.nirsoft.net/utils/sound_volume_command_line.html
+# If you don't want to receive toast notifications showing current volume set to false
+$toastNotifications = $true
+
 # Used to change Windows OS volume.
+# https://www.nirsoft.net/utils/sound_volume_command_line.html
 $svcl = "C:\Users\media\svcl.exe"
 
 # https://github.com/JPersson77/LGTVCompanion
@@ -33,9 +36,10 @@ function getVolume()
 
 function displayVolume()
 {
-    $currentVolume = getVolume
-    New-BurntToastNotification -Silent -AppLogo None -Text "Current volume: $currentVolume"
-
+    if ($toastNotifications) { 
+        $currentVolume = getVolume
+        New-BurntToastNotification -Silent -AppLogo None -Text "Current volume: $currentVolume"
+    }
 }
 
 function volumeUp()
@@ -46,24 +50,6 @@ function volumeUp()
 function volumeDown()
 {
     & $LGTVcli -request com.webos.service.audio/master/volumeDown | Out-Null
-}
-
-# For whatever reason attempts to set to a specific volume via "-volume"
-# did not consistently work, so this is my workaround. 
-function setDefaultVolume()
-{
-    $currentVolume = getVolume
-    $volumeAdjustment = $currentVolume - $defaultVolume
-    Write-host "Volume is currently $currentvolume"
-    Write-host "We need to adjust by $volumeAdjustment to set volume to $defaultVolume"
-
-    if ($VolumeAdjustment -lt 0) {
-        1..-$VolumeAdjustment | ForEach-Object { sleep .1 ; volumeUp }
-    } elseif ($VolumeAdjustment -gt 0) {
-        1..$VolumeAdjustment | ForEach-Object { sleep .1 ; volumeDown }
-    }
-    $currentVolume = getVolume
-    Write-host "After adjustment volume is now $currentvolume"
 }
 
 #########################

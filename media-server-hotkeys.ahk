@@ -39,16 +39,18 @@ Run (powershell ' -file ' scriptsDir 'lg_set_HDMI3.ps1')
 
 ;## Volume Control ##
 
-; Active and Set Audio
-^!a::
-{
-Run (powershell ' -file ' scriptsDir 'lg_active_and_set_volume.ps1')
-}
-
 ; Mute Toggle
 Volume_Mute::
 {
-Run (powershell ' -file ' scriptsDir 'lg_mute_volume.ps1')
+Run (lgtvCompanion ' -button MUTE device1')
+}
+
+; Show current volume
+^Volume_Mute::
+^Volume_Down::
+^Volume_Up::
+{
+Run (powershell ' -file ' scriptsDir 'lg_show_volume.ps1')
 }
 
 ; Raise Volume

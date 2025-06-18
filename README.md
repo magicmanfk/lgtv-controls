@@ -20,9 +20,9 @@ There is one primary Powershell file, *lg_tv_functions.ps1*, that provides all t
 
 These are all configured in media-server-hotkeys.ahk, and can be changed however you'd like.
 
-* **Power TV on/off via keyboard**: Instead of worrying about the monitor going to sleep we can make it super simple to power off and on while leaving the PC power always on or on scheduled power. These scripts also set the volume to a default value when powered on so things aren't unexpectedly loud from previous watching.
-   * ctrl or esc: Power on TV. Won't do anything if already powered on. Kind of like waking up from sleep.
-   * ctrl+Enter: Power toggle. Only way to turn OFF TV via keyboard. Also powers on.
+* **Power TV on/off via keyboard**: When powering on, this will ensure the TV is set to HDMI 1, send a quiet noise to activate the speaker, and display the current volume as a toast notification (optional).
+   * ctrl or esc: Power on TV. Won't do anything if already powered on.
+   * ctrl+Enter: Power toggle. Only way to turn OFF TV via keyboard. 
 
 * **Brightness slider:** ctrl+alt+ the number row on the keyboard for percentage:
     * ` : 0%
@@ -46,10 +46,7 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
     
 * **Direct volume control:**
    * VOLUP, VOLDOWN, and MUTE : These keyboard keys are remapped to control LG TV volume directly. If using LG speakers or audio is setup through ARC this allows you to keep Windows volume at 100% and change sound levels of speakers directly via keyboard without needing a remote control.
-   * ctrl+alt+a : Set default volume. Valuable if you have a TV setup that makes it difficult to see what the audio is currently set to and want to ensure it is set to a comfortable volume (like a Sonos soundbar hooked up via ARC). This one is a bit complex due to some buggy behavior I experienced. Here is exactly what it does, and why:
-      1. When there is no audio activity for a while my Sonos soundbar becomes inactive. While inactive it does not have a volume, so we are not able to read what it is and know what to set it to. To work around this, we first "wake up" the soundbar by setting the Windows volume low (to ensure no loud noises if the speaker volume is currently set to something high), playing a default notification noise to "wake up" the speakers, then bring the Windows volume back up to 100.
-      1. After that, we get the current volume. 
-      1. I had issues setting volume to a specific number - it often messed up the readings I received. So instead, I compare the current volume to the target volume, then raise or lower the volume by however many steps are needed to get it there.
+   * ctrl+VOL keys: Show toast notification with current volume. Will first attempt to activate speakers if they are inactive by sending a quiet alert noise.
 
 * **Direct HDMI input control:** These can be easily configured to your liking, and can even be LG TV channels.
   * ctrl+1: HDMI1 (PC)
@@ -66,7 +63,7 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
 * [run-hidden](https://github.com/stax76/run-hidden): This allows AHK to silently call Powershell scripts. Note the location of the exe as you will need to ensure it matches our default variables.
 * [Sound Volume Command Line](https://www.nirsoft.net/utils/sound_volume_command_line.html) (svcl): Used specifically in the activateVolume Powershell function to manage the Windows volume for situations like mine where your audio device deactivates and you need to wake it up before it is able to send or receive volume levels by playing a noise. If you don't have that issue, you can probably ignore this and delete any references to the activateVolume function in your scripts. Note the location of the exe as you will need to ensure it matches our default variables. Keeping it won't hurt anything.
 * [dsclock](https://ds-clock.en.softonic.com/?ex=RAMP-3252.2): I wish I could find a first party link, but I think the company is no longer around. This is a nice little clock widget that can be set to always show, even over content being played. This was something I wanted for my configuration, but if you don't want this it is by no means necessary.
-* [BurntToast Powershell Module](https://github.com/Windos/BurntToast): This is used to show a notification with the current volume when you unmute. If you don't like this you can remove everything from lg_mute_volume.ps1 but the line 1 import and the one-line mute button press.
+* [BurntToast Powershell Module](https://github.com/Windos/BurntToast): This is used to show a notification with the current volume. If you don't like this you can disable it by setting toastNotifications to false in *lg_tv_functions.ps1*.
 
 ### Installation
 

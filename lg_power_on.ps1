@@ -4,14 +4,13 @@ $powerState = getPowerState
 Write-Host $powerState
 if ($powerState -notmatch "Active") {
     powerOn
-    sleep .5
+    Start-Sleep .5
     $currentInput = GetInput
     If($currentInput -notmatch "hdmi1") {
         setHDMI1
     }
-    Sleep .5
+    Start-Sleep .5
     activateVolume
-    Sleep 2
-    setDefaultVolume
+    displayVolume
 }
 exit

@@ -3,5 +3,7 @@
 $currentInput = GetInput
 If($currentInput -notmatch "hdmi1") {
     setHDMI1
+    activateVolume
+    displayVolume
 }
 exit
