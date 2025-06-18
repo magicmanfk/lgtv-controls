@@ -67,7 +67,7 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
 
 ### Installation
 
-1. Ensure you have installed all the relevant dependencies. AHK and LG TV Companion, and I think run-hidden are essential for a good user experience. Sound Volume Command Line may not be required for you - see "Dependencies" section. dsclock is totally optional, as is the notification on unmute.
+1. Ensure you have installed all the relevant dependencies. AHK and LG TV Companion, and I think run-hidden are essential for a good user experience. Sound Volume Command Line may not be required for you - see "Dependencies" section. dsclock is totally optional, and if you don't want to receive volume level notifications you don't need the BurntToast Powershell Module either.
 1. Clone down this git repo to the folder you'd like to run your LG TV control scripts from. Probably somewhere in your home folder?
 1. Open up *lg_tv_functions.ps1*. Ensure all the variables are correctly set. If you have a different device than an LG C2 it is the name of the "Output Device" in Windows for it. The current default volume of 18 is quiet but noticeable when Windows is at 100% volume. 
 1. Open up *media-server-hotkeys.ahk* and update the variables in the variables section. You'll need to update the "powershell" variable to point to your "run-hidden" exe file, the "scriptsDir" to where you cloned down this git repo, and "lgtvCompanion" to where your LGTV Companion binary files are.
