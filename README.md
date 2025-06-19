@@ -41,8 +41,7 @@ These are all configured in media-server-hotkeys.ahk, and can be changed however
 
 * **HDR Tone mapping:** Depending on your picture settings and things like time of day, you may want to toggle Dynamic Tone Mapping. These also utilize the ctrl+alt keys and use the last two buttons on the top row with the numbers:
     * \- : Turn Dynamic Tone Mapping off
-    * = : Turn Dynamic Tone Mapping on
-    * h : Turn on HGIG (gaming mode only, no noticeable difference from off) 
+    * = : Turn Dynamic Tone Mapping on 
     
 * **Direct volume control:**
    * VOLUMEUP, VOLUMEDOWN, and MUTE : These keyboard keys are remapped to control LG TV volume directly instead of the Windows volume. This allows you to keep Windows volume at 100% and change sound levels of speakers directly via keyboard without needing a remote control, with the PC volume always being consistent with other inputs. Unmuting will show a toast notification with the current volume (optional).

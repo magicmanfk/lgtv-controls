@@ -160,9 +160,3 @@ Run (lgtvCompanion ' -hdrdynamictonemapping on')
 {
 Run (lgtvCompanion ' -hdrdynamictonemapping off')
 }
-
-; Set HGIG Dynamic tone mapping (not able to see a difference between this and off)
-^!h::
-{
-Run (lgtvCompanion ' -hdrdynamictonemapping hgig')
-}
