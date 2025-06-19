@@ -3,7 +3,7 @@
 # Can't find first party source, but this is the app: https://ds-clock.en.softonic.com/?ex=RAMP-3252.2
 
 $ProcessActive = Get-Process dsclock -Module -ErrorAction SilentlyContinue
-if ($ProcessActive -eq $null) {
+if ($null -eq $ProcessActive) {
     Start-Process  -FilePath "C:\Program Files\DS Clock\dsclock.exe"  
 } else {
     Stop-Process -name "dsclock"

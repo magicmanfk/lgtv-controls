@@ -1,7 +1,4 @@
-﻿# Volume you want to default to on power on
-$defaultVolume = 18
-
-# If you don't want to receive toast notifications showing current volume set to false
+﻿# If you don't want to receive toast notifications showing current volume set to false
 $toastNotifications = $true
 
 # Used to change Windows OS volume.
@@ -38,7 +35,9 @@ function displayVolume()
 {
     if ($toastNotifications) { 
         $currentVolume = getVolume
-        New-BurntToastNotification -Silent -AppLogo None -Text "Current volume: $currentVolume"
+        New-BurntToastNotification -Silent -AppLogo None -Text "Volume: $currentVolume"
+        Start-Sleep 3
+        Remove-BTNotification
     }
 }
 

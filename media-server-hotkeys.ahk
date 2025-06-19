@@ -46,9 +46,7 @@ Run (powershell ' -file ' scriptsDir 'lg_mute_volume.ps1')
 }
 
 ; Show current volume
-^Volume_Mute::
-^Volume_Down::
-^Volume_Up::
+Launch_Media::
 {
 Run (powershell ' -file ' scriptsDir 'lg_show_volume.ps1')
 }
