@@ -4,5 +4,6 @@
 $volumeObject = (& $LGTVcli -request com.webos.service.audio/master/getVolume)|ConvertFrom-json
 $currentlyMuted=$volumeObject.Device1.payload.volumeStatus.muteStatus
 if ( $currentlyMuted ) {
+    activateVolume
     displayVolume
 }

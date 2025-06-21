@@ -14,14 +14,7 @@ powershell := "C:\Users\media\run-hidden.exe powershell.exe"
 scriptsDir := "C:\Users\media\code\lgtv-controls\"
 lgtvCompanion := "C:\Program Files\LGTV Companion\LGTV Companion.exe"
 
-;### MAIN SECTION ###
-
-;## Corner Clock Control ##
-; Toggle dsclock on or off (clock in corner of screen)
-^!d::
-{
-Run (powershell ' -file ' scriptsDir 'dsclock-toggle.ps1')
-}               
+;### MAIN SECTION ###       
 
 ;## HDMI Inputs ##
 
@@ -74,6 +67,7 @@ Run (powershell ' -file ' scriptsDir '\lg_power_toggle.ps1')
 ; Simple Power On
 ~Esc::
 ~Ctrl::
+~Shift::
 {
 Run (powershell ' -file ' scriptsDir '\lg_power_on.ps1')
 }
@@ -160,3 +154,10 @@ Run (lgtvCompanion ' -hdrdynamictonemapping on')
 {
 Run (lgtvCompanion ' -hdrdynamictonemapping off')
 }
+
+;## Corner Clock Control ##
+; Toggle dsclock on or off (clock in corner of screen)
+^!d::
+{
+Run (powershell ' -file ' scriptsDir 'dsclock-toggle.ps1')
+}        

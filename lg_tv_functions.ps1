@@ -17,7 +17,7 @@ $deviceName = "LG TV SSCR2"
 # This wakes it up by softly playing something, even if it wakes up at a high volume.
 function activateVolume()
 {
-    & $svcl "/SetVolume" "$deviceName" 10
+    & $svcl "/SetVolume" "$deviceName" 30
     Sleep 1
     [System.Media.SystemSounds]::Hand.Play()
     Sleep 2
